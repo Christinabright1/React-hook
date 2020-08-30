@@ -1,0 +1,33 @@
+How to use hook in our component  ?
+
+-Hooks is a function we just need to call them.
+
+-Hooks is a function that accept argument which is initial value of the state and return the current value of the propertie and method that is capable 
+
+of updating that state propertie.
+
+
+const [count, setCount] = useState(0);
+
+**count is initial state
+
+**setCount method which will update the state.
+
+
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+
+function App() {
+  const [count, setCount] = useState(0);
+  return (
+    <div className="App">
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Click</button>
+    </div>
+  );
+}
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+;
+
+
