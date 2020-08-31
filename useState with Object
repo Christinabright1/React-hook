@@ -1,0 +1,25 @@
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+
+function App() {
+  const [name, setName] = useState({ firstName: "", lastName: "" });
+
+  return (
+    <form>
+      <input
+        type="text"
+        value={name.firstName}
+        onChange={(e) => setName({ ...name, firstName: e.target.value })}
+      />
+      <input
+        type="text"
+        onChange={(e) => setName({ ...name, lastName: e.target.value })}
+      />
+      <h2>Your first is -{name.firstName}</h2>
+      <h2>Your last is -{name.lastName}</h2>
+      <h2>{JSON.stringify(name)}</h2>
+    </form>
+  );
+}
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
