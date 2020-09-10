@@ -1,0 +1,29 @@
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+
+function App() {
+  const [colorIndex, setColorIndex] = useState(0);
+  const colors = ["blue", "green", "red", "orange"];
+
+  // we are performing a 'side effect' since we are working with an API
+  // we are working with the DOM, a browser API outside of React
+  useEffect(() => {
+    const myBox = document.getElementById("box");
+    myBox.style.backgroundColor = colors[colorIndex];
+  });
+  // whenever state is updated, App re-renders and useEffect runs
+
+  function handleChangeIndex() {
+    const next = colorIndex + 1 === colors.length ? 0 : colorIndex + 1;
+    setColorIndex(next);
+  }
+
+  return (
+    <div id="box" className="randomColor">
+      <button onClick={handleChangeIndex}>Change background color</button>
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
