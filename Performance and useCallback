@@ -1,0 +1,3 @@
+useCallback is hooks that will return a memoized version of the callback function that
+
+only changes if one of the dependencies changed.
